@@ -257,8 +257,22 @@ document.addEventListener('DOMContentLoaded', () => {
       // Iterate sections
       day.sections.forEach((section, sectionIndex) => {
         if (section.type === 'main_lift') {
+          // Render the main lift as a single exercise card
           renderExercise(dayCard, section, dayIndex, sectionIndex, 0);
         } else if (section.type === 'superset') {
+          // Add a header to indicate the superset group
+          const ssHeader = document.createElement('p');
+          ssHeader.classList.add(
+            'font-semibold',
+            'text-sm',
+            'text-blue-600',
+            'mt-2',
+            'mb-1'
+          );
+          // Use the provided name if available (e.g. "Superset A"), otherwise default to "Superset"
+          ssHeader.textContent = section.name || 'Superset';
+          dayCard.appendChild(ssHeader);
+          // Render each exercise within the superset
           section.exercises.forEach((exercise, exerciseIndex) => {
             renderExercise(dayCard, exercise, dayIndex, sectionIndex, exerciseIndex);
           });
@@ -325,17 +339,20 @@ document.addEventListener('DOMContentLoaded', () => {
       const table = document.createElement('table');
       table.classList.add('w-full', 'text-sm', 'mb-2');
       const thead = document.createElement('thead');
+      // Include an additional Actions column for delete buttons
       thead.innerHTML = `<tr class="bg-gray-100 text-xs text-gray-700">
         <th class="px-2 py-1 text-left">Week</th>
         <th class="px-2 py-1 text-left">Weight</th>
         <th class="px-2 py-1 text-left">Reps</th>
         <th class="px-2 py-1 text-left">Sets</th>
         <th class="px-2 py-1 text-left">Notes</th>
+        <th class="px-2 py-1 text-left">Actions</th>
       </tr>`;
       table.appendChild(thead);
       const tbody = document.createElement('tbody');
-      exEntries.forEach((entry) => {
+      exEntries.forEach((entry, idx) => {
         const tr = document.createElement('tr');
+        // Build cells for entry values
         tr.innerHTML = `
           <td class="border-t px-2 py-1">${entry.week}</td>
           <td class="border-t px-2 py-1">${entry.weight}</td>
@@ -343,6 +360,29 @@ document.addEventListener('DOMContentLoaded', () => {
           <td class="border-t px-2 py-1">${entry.sets}</td>
           <td class="border-t px-2 py-1 whitespace-pre-wrap">${entry.notes || ''}</td>
         `;
+        // Create actions cell with delete button
+        const actionsTd = document.createElement('td');
+        actionsTd.classList.add('border-t', 'px-2', 'py-1');
+        const delBtn = document.createElement('button');
+        delBtn.type = 'button';
+        delBtn.classList.add('text-red-600', 'hover:text-red-800', 'underline', 'text-xs');
+        delBtn.textContent = 'Delete';
+        delBtn.addEventListener('click', () => {
+          // Remove entry at this index and update storage
+          const allEntries = getEntries();
+          const arr = allEntries[exId] || [];
+          arr.splice(idx, 1);
+          // If the array is empty after deletion, remove the key
+          if (arr.length > 0) {
+            allEntries[exId] = arr;
+          } else {
+            delete allEntries[exId];
+          }
+          saveEntries(allEntries);
+          renderEntriesList();
+        });
+        actionsTd.appendChild(delBtn);
+        tr.appendChild(actionsTd);
         tbody.appendChild(tr);
       });
       table.appendChild(tbody);
