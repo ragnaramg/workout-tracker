@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sections: [
           {
             type: "main_lift",
-            name: "Neutral-Grip Pull-ups",
+            name: "Supinated Chin-Ups",
             sets: 4,
             reps: "6–8",
             tempo: "4-0-1-0"
@@ -31,16 +31,16 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Superset A",
             exercises: [
               {
-                name: "Chest-Supported DB Row",
+                name: "Single-Arm Kettlebell Row",
                 sets: 3,
                 reps: 10,
                 tempo: "4-0-1-0"
               },
               {
-                name: "Rear Delt DB Fly",
+                name: "Band Face Pull",
                 sets: 3,
                 reps: 15,
-                tempo: "4-0-1-0"
+                tempo: "controlled"
               }
             ]
           },
@@ -49,16 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Superset B",
             exercises: [
               {
-                name: "Incline DB Curl",
+                name: "Hammer Curl (KB or DB)",
                 sets: 3,
                 reps: "10–12",
                 tempo: "4-0-1-0"
               },
               {
-                name: "Band Hammer Curl",
+                name: "Cross-Body Band Curl",
                 sets: 3,
-                reps: 15,
-                tempo: "4-0-1-0"
+                reps: "12–15",
+                tempo: "controlled"
               }
             ]
           }
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sections: [
           {
             type: "main_lift",
-            name: "Barbell Back Squat (with wedges)",
+            name: "Barbell Front Squat",
             sets: 4,
             reps: "6–8",
             tempo: "4-0-1-0"
@@ -80,16 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Superset A",
             exercises: [
               {
-                name: "Heels-Elevated Goblet Squat",
-                sets: 3,
-                reps: "12–15",
-                tempo: "4-0-1-0"
-              },
-              {
-                name: "DB Step-Back Lunge",
+                name: "Front-Foot Elevated Bulgarian Split Squat",
                 sets: 3,
                 reps: "8–10/leg",
-                tempo: "4-0-1-0"
+                tempo: "controlled"
+              },
+              {
+                name: "Banded Spanish Squat",
+                sets: 3,
+                reps: "12–15",
+                tempo: "controlled"
               }
             ]
           },
@@ -98,16 +98,16 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Superset B",
             exercises: [
               {
-                name: "DB Glute Bridge (3s squeeze)",
+                name: "Dumbbell Hip Thrust",
                 sets: 3,
                 reps: 12,
-                tempo: "4-0-1-0"
+                tempo: "controlled"
               },
               {
-                name: "Weighted Dead Bug",
+                name: "Side Plank with Hip Abduction",
                 sets: 3,
-                reps: 15,
-                tempo: "controlled"
+                reps: "30s/side",
+                tempo: "isometric"
               }
             ]
           }
@@ -119,7 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
         sections: [
           {
             type: "main_lift",
-            name: "Seated DB Shoulder Press",
+            // User prefers bench presses on an elevated bench (incline) rather than flat/floor versions.
+            name: "Incline Bench Press (BB or DB)",
             sets: 4,
             reps: "6–8",
             tempo: "4-0-1-0"
@@ -129,15 +130,15 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Superset A",
             exercises: [
               {
-                name: "DB Lateral Raise",
+                name: "Arnold Press",
                 sets: 3,
-                reps: "12–15",
-                tempo: "4-0-1-0"
+                reps: "10–12",
+                tempo: "controlled"
               },
               {
-                name: "Band Front Raise",
+                name: "Lean-Away Lateral Raise",
                 sets: 3,
-                reps: "15–20",
+                reps: "12–15",
                 tempo: "controlled"
               }
             ]
@@ -147,15 +148,15 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Superset B",
             exercises: [
               {
-                name: "Band Overhead Triceps Extension",
+                name: "Skull Crushers (DB)",
                 sets: 3,
-                reps: "12–15",
+                reps: "10–12",
                 tempo: "controlled"
               },
               {
-                name: "Band Kickbacks",
+                name: "Close-Grip Band Resisted Push-Ups",
                 sets: 3,
-                reps: "15–20",
+                reps: "AMRAP",
                 tempo: "controlled"
               }
             ]
@@ -168,9 +169,9 @@ document.addEventListener('DOMContentLoaded', () => {
         sections: [
           {
             type: "main_lift",
-            name: "Barbell Romanian Deadlift",
+            name: "Sumo Deadlift",
             sets: 4,
-            reps: "8–10",
+            reps: "6–8",
             tempo: "4-0-1-0"
           },
           {
@@ -178,13 +179,13 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Superset A",
             exercises: [
               {
-                name: "Single-Leg DB RDL",
+                name: "Good Morning (BB or Band)",
                 sets: 3,
-                reps: "8–10/leg",
+                reps: 10,
                 tempo: "controlled"
               },
               {
-                name: "Glute March",
+                name: "Single-Leg Glute Bridge",
                 sets: 3,
                 reps: "12/leg",
                 tempo: "controlled"
@@ -196,15 +197,15 @@ document.addEventListener('DOMContentLoaded', () => {
             name: "Superset B",
             exercises: [
               {
-                name: "Hamstring Slide Curls",
+                name: "Nordic Curl (Band or Assisted)",
                 sets: 3,
-                reps: "8–10",
+                reps: "6–8",
                 tempo: "controlled"
               },
               {
-                name: "Side Plank with Row or Hold",
+                name: "Copenhagen Plank",
                 sets: 2,
-                reps: "30–45s/side",
+                reps: "30s/side",
                 tempo: "isometric"
               }
             ]
